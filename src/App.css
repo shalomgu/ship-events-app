@@ -1,0 +1,75 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.navbar {
+  background-color: #333; /* Dark background */
+  position: fixed; /* Fix the navbar at the top */
+  top: 0; /* Align to the top */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.nav-container {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  padding: 10px 0; /* Add padding for the navbar */
+}
+
+.nav-link {
+  display: block; /* Make links fill the container */
+  color: white; /* White text color */
+  text-align: center; /* Center text */
+  padding: 14px 16px; /* Padding for links */
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-link:hover {
+    background-color: #ddd; /* Light background on hover */
+    color: black; /* Change text color on hover */
+}
+
+/* Additional styles to prevent content from being hidden behind the navbar */
+body {
+    padding-top: 60px; /* Adjust based on navbar height */
+    margin: 0; /* Remove default margin */
+}
