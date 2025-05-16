@@ -9,7 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { ShipEvent } from "./ShipEvent";
-
+import "./ShipEvents.css"; // import CSS
 
 function ShipEventsPage() {
   const [events, setEvents] = useState<ShipEvent[]>([]);
@@ -22,8 +22,9 @@ function ShipEventsPage() {
 
   const fetchEvents = async () => {
     try {
-      const params: any = {};
-      if (shipId) params.shipId = shipId;
+      const params: any = { shipId: 0};
+      if (shipId) 
+        params.shipId = shipId;
 
       if (eventType) params.eventType = eventType;
 
@@ -36,65 +37,49 @@ function ShipEventsPage() {
   };
 
   return (
-    <div style={{ padding: 16 }}>
-    <div style={{ display: "flex", gap: 16, marginBottom: 16 }}>
-      <TextField
-        label="Filter by Ship ID"
-        variant="outlined"
-        value={shipId}
-        onChange={(e) => setShipId(e.target.value)}
-        InputProps={{
-          style: {
-            color: "black",
-            backgroundColor: "white",
-          },
-        }}
-        InputLabelProps={{
-          style: { color: "black" },
-        }}
-      />
-      <TextField
-        label="Filter by Event Type"
-        variant="outlined"
-        value={eventType}
-        onChange={(e) => setEventType(e.target.value)}
-        InputProps={{
-          style: {
-            color: "black",
-            backgroundColor: "white",
-          },
-        }}
-        InputLabelProps={{
-          style: { color: "black" },
-        }}
-      />
-    </div>
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Event Type</TableCell>
-            <TableCell>Timestamp</TableCell>
-            <TableCell>Additional Data</TableCell>
-            <TableCell>Ship ID</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {events.map((event) => (
-            <TableRow key={event.id}>
-              <TableCell>{event.id}</TableCell>
-              <TableCell>{event.eventType}</TableCell>
-              <TableCell>{new Date(event.timestamp).toLocaleString()}</TableCell>
-              <TableCell>{event.additionalData}</TableCell>
-              <TableCell>{event.shipId}</TableCell>
+    <div className="ship-events-container">
+      <div className="ship-events-filters">
+        <TextField
+          label="Filter by Ship ID"
+          variant="outlined"
+          value={shipId}
+          onChange={(e) => setShipId(e.target.value)}
+          className="ship-events-textfield"
+        />
+        <TextField
+          label="Filter by Event Type"
+          variant="outlined"
+          value={eventType}
+          onChange={(e) => setEventType(e.target.value)}
+          className="ship-events-textfield"
+        />
+      </div>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Event Type</TableCell>
+              <TableCell>Timestamp</TableCell>
+              <TableCell>Additional Data</TableCell>
+              <TableCell>Ship ID</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  </div>
-);
-};
+          </TableHead>
+          <TableBody>
+            {events.map((event) => (
+              <TableRow key={event.id}>
+                <TableCell>{event.id}</TableCell>
+                <TableCell>{event.eventType}</TableCell>
+                <TableCell>{new Date(event.timestamp).toLocaleString()}</TableCell>
+                <TableCell>{event.additionalData}</TableCell>
+                <TableCell>{event.shipId}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  );
+}
 
 export default ShipEventsPage;

@@ -1,0 +1,21 @@
+/* ShipEvents.css */
+
+.ship-events-container {
+    padding: 16px;
+  }
+  
+  .ship-events-filters {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .ship-events-textfield .MuiInputBase-input {
+    color: black;
+    background-color: white;
+  }
+  
+  .ship-events-textfield .MuiInputLabel-root {
+    color: black;
+  }
+  
