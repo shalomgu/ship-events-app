@@ -23,10 +23,7 @@ function ShipEventsPage() {
   const fetchEvents = async () => {
     try {
       const params: any = {};
-      if (shipId) 
-        params.shipId = shipId;
-      else
-        params.shipId = 1;
+      if (shipId) params.shipId = shipId;
 
       if (eventType) params.eventType = eventType;
 
@@ -63,12 +60,12 @@ function ShipEventsPage() {
         onChange={(e) => setEventType(e.target.value)}
         InputProps={{
           style: {
-            color: "black",         // text color
-            backgroundColor: "white", // input background
+            color: "black",
+            backgroundColor: "white",
           },
         }}
         InputLabelProps={{
-          style: { color: "black" },  // label color
+          style: { color: "black" },
         }}
       />
     </div>
